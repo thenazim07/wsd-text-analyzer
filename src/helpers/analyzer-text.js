@@ -14,5 +14,5 @@ exports.splitIntoSentences = (text) => {
 }
 
 exports.splitIntoParagraphs = (text) => {
-    return text.split(/\n\s*\n/);
+    return text.replace(/[\.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(/\n\s*\n/);
 }

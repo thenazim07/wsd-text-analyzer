@@ -51,7 +51,26 @@ exports.getNumberOfParagraphs = async (req, res) => {
 }
 
 exports.getLongestWordsInParagraphs = async (req, res) => {
-    res.json("get longest words in paragraphs");
+    try {
+        const data = await fileReader.readTextFile();
+        const paragraphs = textHelper.splitIntoParagraphs(data);
+        let longestWords = [];
+        paragraphs.forEach(paragraph => {
+            const words = textHelper.splitIntoWords(paragraph);
+            const longestWord = words.reduce((longest, current) => {
+                return current.length > longest.length ? current : longest;
+            }, '');
+            words.forEach((word) => {
+                if (word.length === longestWord.length) {
+                    longestWords.push(word);
+                }
+            });
+        });
+        res.json({ longestWords });
+    } catch (error) {
+        console.log('error :>> ', error);
+        res.json(error);
+    }
 }
 
 
