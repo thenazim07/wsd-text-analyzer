@@ -39,7 +39,15 @@ exports.getNumberOfSentences = async (req, res) => {
 }
 
 exports.getNumberOfParagraphs = async (req, res) => {
-    res.json("get paragraphs");
+    try {
+        const data = await fileReader.readTextFile();
+        const paragraphs = textHelper.splitIntoParagraphs(data);
+        console.log('paragraphs :>> ', paragraphs);
+        return res.json({ paragraphs: paragraphs.length });
+    } catch (error) {
+        console.log('error :>> ', error);
+        res.json(error);
+    }
 }
 
 exports.getLongestWordsInParagraphs = async (req, res) => {

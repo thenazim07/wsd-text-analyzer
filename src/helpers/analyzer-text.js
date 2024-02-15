@@ -12,3 +12,7 @@ exports.countCharacters = (text) =>{
 exports.splitIntoSentences = (text) => {
     return text.split(/[.!?]+/).filter(sentence => sentence.trim() !== '');
 }
+
+exports.splitIntoParagraphs = (text) => {
+    return text.split(/\n\s*\n/);
+}
