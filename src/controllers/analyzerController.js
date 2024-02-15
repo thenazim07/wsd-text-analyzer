@@ -27,7 +27,15 @@ exports.getNumberOfCharacters = async (req, res) => {
 }
 
 exports.getNumberOfSentences = async (req, res) => {
-    res.json("get sentences");
+    try {
+        const data = await fileReader.readTextFile();
+        const sentences = textHelper.splitIntoSentences(data);
+        console.log('sentences :>> ', sentences);
+        return res.json({ sentences: sentences.length });
+    } catch (error) {
+        console.log('error :>> ', error);
+        res.json(error);
+    }
 }
 
 exports.getNumberOfParagraphs = async (req, res) => {
