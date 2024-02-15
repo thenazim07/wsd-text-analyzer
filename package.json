@@ -4,10 +4,15 @@
   "description": "Coding Challange - Wall Street Docs",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "format-check": "npx prettier --check .",
+    "format-write": "npx prettier --write ."
   },
   "author": "Md Nazim Mahmud Khan",
   "dependencies": {
     "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
