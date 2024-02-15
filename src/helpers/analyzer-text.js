@@ -1,7 +1,11 @@
 
+const ignorePuntuations = (text) => {
+    return text.replace(/[.!?]/g, '');
+}
+
 
 exports.splitIntoWords = (text) =>{
-    return text.split(/\s+/).filter(word => word.trim() !== '');
+    return ignorePuntuations(text).split(/\s+/).filter(word => word.trim() !== '');
 }
 
 exports.countCharacters = (text) =>{
@@ -14,5 +18,5 @@ exports.splitIntoSentences = (text) => {
 }
 
 exports.splitIntoParagraphs = (text) => {
-    return text.replace(/[\.,\/#!$%\^&\*;:{}=\-_`~()]/g, '').split(/\n\s*\n/);
+    return ignorePuntuations(text).split(/\n\s*\n/).filter(paragraph => paragraph.trim() !== '');
 }
