@@ -1,10 +1,10 @@
 const fileReader = require('../helpers/file-reader');
-const analyzerTextHelper = require('../helpers/analyzer-text');
+const textHelper = require('../helpers/analyzer-text');
 
 exports.getNumberOfWords = async (req, res) => {
     try {
         const data = await fileReader.readTextFile();
-        const words = analyzerTextHelper.splitIntoWords(data);
+        const words = textHelper.splitIntoWords(data);
         return res.json({ wordCount: words.length });
     } catch (error) {
         console.log('error :>> ', error);

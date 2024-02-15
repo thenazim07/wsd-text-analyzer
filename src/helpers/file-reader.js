@@ -13,4 +13,4 @@ exports.readTextFile = async () => {
         }
       });
     });
-  };
+};
