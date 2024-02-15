@@ -2,9 +2,12 @@
   "name": "wsd-text-analyzer",
   "version": "1.0.0",
   "description": "Coding Challange - Wall Street Docs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Md Nazim Mahmud Khan"
+  "author": "Md Nazim Mahmud Khan",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
