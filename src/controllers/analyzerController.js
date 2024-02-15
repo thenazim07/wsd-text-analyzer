@@ -5,3 +5,8 @@ exports.getNumberOfWords = async (req, res) => {
 exports.getNumberOfCharacters = async (req, res) => {
     res.json("get characters");
 }
+
+exports.getNumberOfSentences = async (req, res) => {
+    res.json("get sentences");
+}
+
