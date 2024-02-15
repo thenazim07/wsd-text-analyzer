@@ -5,5 +5,5 @@ exports.splitIntoWords = (text) =>{
 }
 
 exports.countCharacters = (text) =>{
-    return text.replace(/\s/g, '').length;
+    return text.toLowerCase().replace(/[^\w]/g, '');
 }

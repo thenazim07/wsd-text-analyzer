@@ -5,6 +5,7 @@ exports.getNumberOfWords = async (req, res) => {
     try {
         const data = await fileReader.readTextFile();
         const words = textHelper.splitIntoWords(data);
+        console.log('words :>> ', words);
         return res.json({ wordCount: words.length });
     } catch (error) {
         console.log('error :>> ', error);
@@ -14,7 +15,15 @@ exports.getNumberOfWords = async (req, res) => {
 }
 
 exports.getNumberOfCharacters = async (req, res) => {
-    res.json("get characters");
+    try {
+        const data = await fileReader.readTextFile();
+        const characters = textHelper.countCharacters(data);
+        console.log('characters :>> ', characters);
+        return res.json({ characters: characters.length });
+    } catch (error) {
+        console.log('error :>> ', error);
+        res.json(error);
+    }
 }
 
 exports.getNumberOfSentences = async (req, res) => {
