@@ -14,5 +14,9 @@ exports.getNumberOfParagraphs = async (req, res) => {
     res.json("get paragraphs");
 }
 
+exports.getLongestWordsInParagraphs = async (req, res) => {
+    res.json("get longest words in paragraphs");
+}
+
 
 
