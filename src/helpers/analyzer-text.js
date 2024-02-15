@@ -5,5 +5,6 @@ exports.splitIntoWords = (text) =>{
 }
 
 exports.countCharacters = (text) =>{
+    // not clear about the statement "treat uppercase and lowercase letters as the same"
     return text.toLowerCase().replace(/[^\w]/g, '');
 }
