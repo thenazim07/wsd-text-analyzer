@@ -10,3 +10,9 @@ exports.getNumberOfSentences = async (req, res) => {
     res.json("get sentences");
 }
 
+exports.getNumberOfParagraphs = async (req, res) => {
+    res.json("get paragraphs");
+}
+
+
+
