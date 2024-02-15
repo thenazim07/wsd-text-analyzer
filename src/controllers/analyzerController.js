@@ -1,18 +1,16 @@
-const path = require('path');
-const fs = require('fs');
+const fileReader = require('../helpers/file-reader');
 const analyzerTextHelper = require('../helpers/analyzer-text');
-const sampleTextPath = path.resolve(__dirname, "../../sample.txt");
 
 exports.getNumberOfWords = async (req, res) => {
-    fs.readFile(sampleTextPath, 'utf8', (err, data) => {
-        if (err) {
-            console.error(err);
-            res.status(500).json({ error: 'Internal server error' });
-            return;
-        }
+    try {
+        const data = await fileReader.readTextFile();
         const words = analyzerTextHelper.splitIntoWords(data);
-        res.json({ wordCount: words.length });
-    });
+        return res.json({ wordCount: words.length });
+    } catch (error) {
+        console.log('error :>> ', error);
+        res.json(error);
+    }
+   
 }
 
 exports.getNumberOfCharacters = async (req, res) => {
