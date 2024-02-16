@@ -1,5 +1,5 @@
 const ignorePuntuations = (text) => {
-  return text.replace(/[.!?]/g, "");
+  return text.replace(/[.!?,]/g, "");
 };
 
 exports.splitIntoWords = (text) => {

@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = require("./src/routes");
-const errors = require("./errors")
+const errors = require("./core/errors")
 
 const app = express();
 const port = 3000;
